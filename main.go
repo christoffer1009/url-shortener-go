@@ -12,7 +12,7 @@ import (
 
 func main() {
 	godotenv.Load(".env")
-	PORT := os.Getenv("PORT")
+	PORT := os.Getenv("APP_PORT")
 
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
@@ -31,7 +31,7 @@ func main() {
 
 	store.InitializeStore()
 
-	err := r.Run(fmt.Sprintf(": %v", PORT))
+	err := r.Run(fmt.Sprintf(":%v", PORT))
 	if err != nil {
 		panic(fmt.Sprintf("Failed to start the web server - Error: %v", err))
 	}

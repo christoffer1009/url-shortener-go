@@ -21,7 +21,7 @@ const CacheDuration = 6 * time.Hour
 func InitializeStore() *StorageService {
 
 	godotenv.Load(".env")
-	REDIS_ADDR := os.Getenv("REDIS_ADDR")
+	REDIS_ADDR := fmt.Sprintf("%s:%s", os.Getenv("REDIS_HOST"), os.Getenv("REDIS_PORT"))
 	REDIS_PASSWORD := os.Getenv("REDIS_PASSWORD")
 	REDIS_DB, _ := strconv.Atoi(os.Getenv("REDIS_DB"))
 
