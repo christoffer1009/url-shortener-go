@@ -4,9 +4,9 @@ Este projeto é uma simples API encurtadora de URL construída usando a linguage
 
 ## Tecnologias Utilizadas
 
-- 🐍 **Go**: A aplicação é desenvolvida em Go, uma linguagem de programação compilada e eficiente.
-- 🔄 **Gin**: O framework web Gin é utilizado para facilitar o desenvolvimento do servidor HTTP.
-- 🚀 **Redis**: O Redis é utilizado como um banco de dados em memória para armazenar as informações de URL encurtadas.
+- **Go**: A aplicação é desenvolvida em Go, uma linguagem de programação compilada e eficiente.
+- **Gin**: O framework web Gin é utilizado para facilitar o desenvolvimento do servidor HTTP.
+- **Redis**: O Redis é utilizado como um banco de dados em memória para armazenar as informações de URL encurtadas.
 
 ## Como Usar
 
