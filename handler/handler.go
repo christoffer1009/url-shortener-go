@@ -33,7 +33,7 @@ func CreateShortUrl(c *gin.Context) {
 
 	host := fmt.Sprintf("%v:%v/", HOST, PORT)
 	c.JSON(200, gin.H{
-		"message":   "short url created successfully",
+		"mensagem":  "URL encurtada com sucesso",
 		"short_url": host + shortUrl,
 	})
 }

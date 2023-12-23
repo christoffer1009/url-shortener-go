@@ -17,11 +17,11 @@ func main() {
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "Hey Go URL Shortener !",
+			"message": "Olá, aqui é um encurtador de URLs em Go!",
 		})
 	})
 
-	r.POST("/create", func(c *gin.Context) {
+	r.POST("/encurtar", func(c *gin.Context) {
 		handler.CreateShortUrl(c)
 	})
 
