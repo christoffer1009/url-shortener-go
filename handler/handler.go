@@ -12,8 +12,7 @@ import (
 )
 
 type CreateShortUrlRequest struct {
-	OriginalUrl string `json:"original_url" binding:"required"`
-	UserId      string `json:"user_id" binding:"required"`
+	OriginalUrl string `json:"originalUrl" binding:"required"`
 }
 
 func CreateShortUrl(c *gin.Context) {
@@ -24,17 +23,16 @@ func CreateShortUrl(c *gin.Context) {
 		return
 	}
 
-	shortUrl := shortener.GenerateShortUrl(createUrlRequest.OriginalUrl, createUrlRequest.UserId)
-	store.SaveUrlMapping(shortUrl, createUrlRequest.OriginalUrl, createUrlRequest.UserId)
+	shortUrl := shortener.GenerateShortUrl(createUrlRequest.OriginalUrl)
+	store.SaveUrlMapping(shortUrl, createUrlRequest.OriginalUrl)
 
 	godotenv.Load(".env")
-	HOST := os.Getenv("HOST")
-	PORT := os.Getenv("PORT")
+	HOST := os.Getenv("APP_HOST")
+	PORT := os.Getenv("APP_PORT")
 
 	host := fmt.Sprintf("%v:%v/", HOST, PORT)
 	c.JSON(200, gin.H{
-		"mensagem":  "URL encurtada com sucesso",
-		"short_url": host + shortUrl,
+		"shortUrl": host + shortUrl,
 	})
 }
 
